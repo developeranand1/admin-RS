@@ -1,0 +1,74 @@
+.topbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 72px;
+  z-index: 1040;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #e9edf5;
+}
+
+.topbar-title {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #0f172a;
+}
+
+.btn-icon {
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: #f2f5fb;
+  border: 1px solid #e8eef9;
+}
+
+.btn-icon:hover {
+  background: #eaf0ff;
+}
+
+.topbar-search {
+  width: 280px;
+  border-radius: 14px;
+  padding: 10px 12px;
+  background: #f2f5fb;
+  border: 1px solid #e8eef9;
+  color: #475569;
+}
+
+.topbar-search input {
+  background: transparent;
+  font-size: 0.95rem;
+}
+
+.btn-profile {
+  border-radius: 14px;
+  background: #f2f5fb;
+  border: 1px solid #e8eef9;
+  padding: 8px 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.dot {
+  position: absolute;
+  margin-left: 18px;
+  margin-top: -10px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ef4444;
+  border: 2px solid #fff;
+}

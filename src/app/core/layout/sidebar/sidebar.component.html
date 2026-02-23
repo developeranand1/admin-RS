@@ -1,0 +1,55 @@
+<aside class="sidebar" [class.open]="open">
+
+  <!-- Brand -->
+  <div class="brand">
+    <div class="brand-badge">
+      <i class="bi bi-grid-1x2-fill"></i>
+    </div>
+
+    <div class="brand-text">
+      <div class="name">AdminPanel</div>
+      <div class="sub">Premium Dashboard</div>
+    </div>
+
+    <button class="btn btn-sm btn-close d-lg-none ms-auto" (click)="close.emit()"></button>
+  </div>
+
+  <!-- Scrollable area -->
+  <div class="sidebar-scroll">
+    <div class="menu px-3">
+ 
+      <a routerLink="/dashboard" routerLinkActive="active"
+         [routerLinkActiveOptions]="{ exact: true }"
+         class="item" (click)="close.emit()">
+        <i class="bi bi-speedometer2"></i>
+        <span>Dashboard</span>
+      </a>
+
+      <a routerLink="/dashboard/m3m/blog-list" routerLinkActive="active"
+         class="item" (click)="close.emit()">
+        <i class="bi bi-file-earmark-text"></i>
+        <span>Blog List</span>
+      </a>
+
+      <a routerLink="/dashboard/m3m/project-list" routerLinkActive="active"
+         class="item" (click)="close.emit()">
+        <i class="bi bi-folder2"></i>
+        <span>Projects</span>
+      </a>
+
+
+      <a class="item" href="#">
+        <i class="bi bi-gear"></i>
+        <span>Settings</span>
+      </a>
+
+      <a class="item text-danger" href="#">
+        <i class="bi bi-box-arrow-right"></i>
+        <span>Logout</span>
+      </a>
+    </div>
+  </div>
+
+
+
+</aside>

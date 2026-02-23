@@ -1,0 +1,36 @@
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  background: #f6f7fb;
+}
+
+.app-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.app-content {
+  padding-top: 72px; // navbar height
+}
+
+.sidebar-backdrop {
+  display: none;
+}
+
+@media (max-width: 991.98px) {
+  .sidebar-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.45);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.25s ease;
+    z-index: 1039;
+  }
+
+  .sidebar-backdrop.show {
+    opacity: 1;
+    visibility: visible;
+  }
+}

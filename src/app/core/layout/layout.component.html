@@ -1,0 +1,27 @@
+<div class="app-shell">
+
+  <!-- Sidebar -->
+  <app-sidebar
+    [open]="sidebarOpen"
+    (close)="closeSidebar()">
+  </app-sidebar>
+
+  <!-- Backdrop for mobile -->
+  <div
+    class="sidebar-backdrop"
+    [class.show]="sidebarOpen"
+    (click)="closeSidebar()">
+  </div>
+
+  <!-- Main -->
+  <div class="app-main">
+    <app-navbar (menu)="toggleSidebar()"></app-navbar>
+
+    <main class="app-content">
+      <div class="container-fluid py-4">
+        <router-outlet></router-outlet>
+      </div>
+    </main>
+  </div>
+
+</div>
