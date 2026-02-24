@@ -1,0 +1,162 @@
+<div class="container py-4">
+  <div class="card shadow-lg border-0">
+
+    <div class="card-header bg-dark text-white">
+      <h4><i class="bi bi-building me-2"></i>Add Project</h4>
+    </div>
+
+    <div class="card-body">
+      <div class="row g-3">
+
+        <div class="col-md-6">
+          <label class="form-label">Project Name</label>
+          <input class="form-control"
+                 placeholder="Enter project name"
+                 [(ngModel)]="project.name">
+        </div>
+
+        <div class="col-md-3">
+          <label class="form-label">Cost</label>
+          <input class="form-control"
+                 placeholder="e.g. 2.5 Cr"
+                 [(ngModel)]="project.cost">
+        </div>
+
+        <div class="col-md-3">
+          <label class="form-label">Area</label>
+          <input class="form-control"
+                 placeholder="e.g. 2400 Sqft"
+                 [(ngModel)]="project.area">
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Project Type</label>
+          <input class="form-control"
+                 placeholder="Luxury / Residential"
+                 [(ngModel)]="project.projectType">
+        </div>
+
+        <!-- Amenities -->
+        <div class="col-12">
+          <label class="form-label">Amenities</label>
+
+          <div class="input-group mb-2">
+            <input class="form-control"
+                   placeholder="Add amenity"
+                   [(ngModel)]="amenityInput">
+            <button class="btn btn-outline-primary"
+                    (click)="addAmenity()">
+              Add
+            </button>
+          </div>
+
+          <div>
+            <span class="badge bg-secondary me-2 mb-2"
+                  *ngFor="let amenity of project.amenities; let i = index">
+              {{ amenity }}
+              <i class="bi bi-x ms-1"
+                 style="cursor:pointer"
+                 (click)="removeAmenity(i)"></i>
+            </span>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <label class="form-label">Short Description</label>
+          <textarea class="form-control"
+                    rows="2"
+                    placeholder="Enter short description"
+                    [(ngModel)]="project.shortDescription"></textarea>
+        </div>
+
+        <!-- TinyMCE Editor -->
+        <div class="col-12">
+          <label class="form-label">Description</label>
+
+          <editor
+            [(ngModel)]="project.description"
+            [init]="{
+              height: 450,
+              menubar: false,
+              plugins: 'lists link image table code preview fullscreen',
+              toolbar:
+                'undo redo | blocks | \
+                 bold italic underline | \
+                 fontsize fontfamily | \
+                 alignleft aligncenter alignright | \
+                 bullist numlist | link image table | code',
+
+              block_formats:
+                'Paragraph=p; Heading 1=h1; Heading 2=h2; Heading 3=h3',
+
+              font_size_formats:
+                '12px 14px 16px 18px 20px 24px 28px 32px 36px 48px'
+            }">
+          </editor>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Meta Title</label>
+          <input class="form-control"
+                 [(ngModel)]="project.metaTitle">
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Meta Keywords</label>
+          <input class="form-control"
+                 [(ngModel)]="project.metaKeywords">
+        </div>
+
+        <div class="col-12">
+          <label class="form-label">Meta Description</label>
+          <textarea class="form-control"
+                    [(ngModel)]="project.metaDescription"></textarea>
+        </div>
+
+        <!-- Image -->
+        <div class="col-12">
+          <label class="form-label">Upload Image</label>
+          <input type="file"
+                 class="form-control"
+                 (change)="onFileChange($event)">
+        </div>
+
+        <div *ngIf="imagePreview" class="col-12 mt-2">
+          <img [src]="imagePreview"
+               width="200"
+               class="img-thumbnail shadow">
+        </div>
+
+      </div>
+
+      <!-- Progress -->
+      <div *ngIf="loading" class="mt-4">
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped progress-bar-animated"
+               [style.width.%]="uploadProgress">
+            {{uploadProgress}}%
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-4 text-end">
+        <button class="btn btn-success"
+                [disabled]="loading"
+                (click)="submitProject()">
+
+          <span *ngIf="!loading">
+            <i class="bi bi-check-circle me-1"></i>
+            Submit Project
+          </span>
+
+          <span *ngIf="loading">
+            <span class="spinner-border spinner-border-sm me-2"></span>
+            Uploading...
+          </span>
+
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>

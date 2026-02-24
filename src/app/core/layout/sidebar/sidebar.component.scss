@@ -91,3 +91,18 @@ padding: 8px 10px;
     transform: translateX(0);
   }
 }
+
+.menu-title {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 5px;
+}
+
+.submenu {
+  padding-left: 20px;
+}
+
+.sub-item {
+  font-size: 14px;
+}

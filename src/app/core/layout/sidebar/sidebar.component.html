@@ -17,37 +17,170 @@
   <!-- Scrollable area -->
   <div class="sidebar-scroll">
     <div class="menu px-3">
- 
-      <a routerLink="/dashboard" routerLinkActive="active"
-         [routerLinkActiveOptions]="{ exact: true }"
-         class="item" (click)="close.emit()">
+
+  <!-- Dashboard -->
+  <a routerLink="/dashboard"
+     routerLinkActive="active"
+     [routerLinkActiveOptions]="{ exact: true }"
+     class="item"
+     (click)="close.emit()">
+    <i class="bi bi-speedometer2"></i>
+    <span>Dashboard</span>
+  </a>
+
+
+  <!-- ================= M3M SECTION ================= -->
+  <div class="menu-title mt-3">M3M Module</div>
+
+  <a class="item"
+     (click)="toggleM3M()"
+     style="cursor:pointer">
+    <i class="bi bi-building"></i>
+    <span>M3M</span>
+    <i class="bi ms-auto"
+       [ngClass]="m3mOpen ? 'bi-chevron-down' : 'bi-chevron-right'"></i>
+  </a>
+
+  <div *ngIf="m3mOpen" class="submenu">
+
+    <a routerLink="/dashboard/m3m/blog-add"
+       routerLinkActive="active"
+       class="item sub-item"
+       (click)="close.emit()">
+      <i class="bi bi-pencil-square"></i>
+      <span>Blog Add</span>
+    </a>
+
+    <a routerLink="/dashboard/m3m/blog-list"
+       routerLinkActive="active"
+       class="item sub-item"
+       (click)="close.emit()">
+      <i class="bi bi-journal-text"></i>
+      <span>Blog List</span>
+    </a>
+
+    <a routerLink="/dashboard/m3m/project-add"
+       routerLinkActive="active"
+       class="item sub-item"
+       (click)="close.emit()">
+      <i class="bi bi-plus-square"></i>
+      <span>Project Add</span>
+    </a>
+
+    <a routerLink="/dashboard/m3m/project-list"
+       routerLinkActive="active"
+       class="item sub-item"
+       (click)="close.emit()">
+      <i class="bi bi-building"></i>
+      <span>Project List</span>
+    </a>
+
+    <a routerLink="/dashboard/m3m/enquiry-list"
+       routerLinkActive="active"
+       class="item sub-item"
+       (click)="close.emit()">
+      <i class="bi bi-envelope"></i>
+      <span>Enquiry</span>
+    </a>
+
+  </div>
+
+
+  <!-- ================= M2M SECTION ================= -->
+  <div class="menu-title mt-3">M2M Module</div>
+
+  <a class="item"
+     (click)="toggleM2M()"
+     style="cursor:pointer">
+    <i class="bi bi-layers"></i>
+    <span>M2M</span>
+    <i class="bi ms-auto"
+       [ngClass]="m2mOpen ? 'bi-chevron-down' : 'bi-chevron-right'"></i>
+  </a>
+
+  <div *ngIf="m2mOpen" class="submenu">
+
+    <a class="item sub-item">
+      <i class="bi bi-pencil-square"></i>
+      <span>Blog Add</span>
+    </a>
+
+    <a class="item sub-item">
+      <i class="bi bi-journal-text"></i>
+      <span>Blog List</span>
+    </a>
+
+    <a class="item sub-item">
+      <i class="bi bi-building"></i>
+      <span>Project List</span>
+    </a>
+
+  </div>
+
+
+  <!-- Settings -->
+  <a class="item">
+    <i class="bi bi-gear"></i>
+    <span>Settings</span>
+  </a>
+
+  <!-- Logout -->
+  <a class="item text-danger"
+     (click)="logout()"
+     style="cursor:pointer;">
+    <i class="bi bi-box-arrow-right"></i>
+    <span>Logout</span>
+  </a>
+
+</div>
+    <!-- <div class="menu px-3">
+
+      <a routerLink="/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="item"
+        (click)="close.emit()">
         <i class="bi bi-speedometer2"></i>
         <span>Dashboard</span>
       </a>
 
-      <a routerLink="/dashboard/m3m/blog-list" routerLinkActive="active"
-         class="item" (click)="close.emit()">
+      <a routerLink="/dashboard/m3m/blog-add" routerLinkActive="active" class="item" (click)="close.emit()">
+        <i class="bi bi-file-earmark-text"></i>
+        <span>Blog Add</span>
+      </a>
+
+      <a routerLink="/dashboard/m3m/blog-list" routerLinkActive="active" class="item" (click)="close.emit()">
         <i class="bi bi-file-earmark-text"></i>
         <span>Blog List</span>
       </a>
 
-      <a routerLink="/dashboard/m3m/project-list" routerLinkActive="active"
-         class="item" (click)="close.emit()">
+
+      <a routerLink="/dashboard/m3m/project-list" routerLinkActive="active" class="item" (click)="close.emit()">
         <i class="bi bi-folder2"></i>
-        <span>Projects</span>
+        <span>Projects List</span>
       </a>
 
+      <a routerLink="/dashboard/m3m/project-add" routerLinkActive="active" class="item" (click)="close.emit()">
+        <i class="bi bi-folder2"></i>
+        <span>Projects Add</span>
+      </a>
+
+
+      
+      <a routerLink="/dashboard/m3m/enquiry-list" routerLinkActive="active" class="item" (click)="close.emit()">
+        <i class="bi bi-folder2"></i>
+        <span>Enquiry</span>
+      </a>
+
+      
 
       <a class="item" href="#">
         <i class="bi bi-gear"></i>
         <span>Settings</span>
       </a>
 
-      <a class="item text-danger" href="#">
+      <a class="item text-danger" (click)="logout()" style="cursor:pointer;">
         <i class="bi bi-box-arrow-right"></i>
         <span>Logout</span>
       </a>
-    </div>
+    </div> -->
   </div>
 
 

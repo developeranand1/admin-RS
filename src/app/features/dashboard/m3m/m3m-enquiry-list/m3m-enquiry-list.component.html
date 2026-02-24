@@ -1,0 +1,100 @@
+<div class="container py-4">
+
+  <div class="card shadow-lg border-0">
+
+    <!-- Header -->
+    <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+      <h4 class="mb-0">
+        <i class="bi bi-envelope-fill me-2"></i>
+        Project Enquiries
+      </h4>
+      <span class="badge bg-success">
+        {{ enquiries.length }} Enquiries
+      </span>
+    </div>
+
+    <div class="card-body">
+
+      <!-- Loader -->
+      <div *ngIf="loading" class="text-center py-4">
+        <div class="spinner-border text-primary"></div>
+      </div>
+
+      <!-- Table -->
+      <div class="table-responsive" *ngIf="!loading">
+
+        <table class="table table-bordered table-hover align-middle">
+
+          <thead class="table-dark">
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Project</th>
+              <th>Message</th>
+              <th>Date</th>
+              <th width="100">Action</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <tr *ngFor="let enquiry of enquiries; let i = index">
+              <td>{{ i + 1 }}</td>
+
+              <td>
+                <strong>{{ enquiry.name }}</strong>
+              </td>
+
+              <td>
+                <a [href]="'mailto:' + enquiry.email">
+                  {{ enquiry.email }}
+                </a>
+              </td>
+
+              <td>
+                <a [href]="'tel:' + enquiry.phone">
+                  {{ enquiry.phone }}
+                </a>
+              </td>
+
+              <td>
+                <a [href]="enquiry.projectUrl" target="_blank">
+                  {{ enquiry.projectName }}
+                </a>
+              </td>
+
+              <td>
+                {{ enquiry.message }}
+              </td>
+
+              <td>
+                {{ enquiry.createdAt | date:'mediumDate' }}
+              </td>
+
+              <td>
+                <button class="btn btn-sm btn-danger"
+                        (click)="deleteEnquiry(enquiry._id)">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </td>
+            </tr>
+
+            <tr *ngIf="enquiries.length === 0">
+              <td colspan="8" class="text-center text-muted">
+                No Enquiries Found
+              </td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
